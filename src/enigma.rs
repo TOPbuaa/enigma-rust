@@ -104,7 +104,7 @@ mod tests {
         assert_eq!(e.code("ENIGMA"), "TKHUER");
     }
     #[test]
-    fn test_Enigma() {
+    fn test_enigma() {
         let mut e = Enigma::new(
             [rotor::WHEEL_I, rotor::WHEEL_II, rotor::WHEEL_III],
             ['P', 'E', 'Z'],

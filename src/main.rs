@@ -7,12 +7,13 @@ fn main() {
         "bq cr di ej kw mt os px uz gh",
     );
     let t1 = Instant::now();
+    // 80Mbits
     for _ in 0..1000_000 {
         e.code("HELLOWORLD");
     }
     let t2 = Instant::now();
     println!(
-        "time:{:?}   speed:{}",
+        "time:{:?}   speed:{} Mbps",
         t2.duration_since(t1),
         10.0 * 8.0 / (t2.duration_since(t1).as_millis() as f64 / 1000.0)
     );

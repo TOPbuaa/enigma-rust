@@ -1,11 +1,18 @@
 // # 旋转
 // # rotor_in:输入偏移量，输出偏移量
 // # rotor_out:输入偏移量，输出偏移量
+
+#[allow(dead_code)]
 pub const WHEEL_I: (&str, char) = ("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+#[allow(dead_code)]
 pub const WHEEL_II: (&str, char) = ("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
+#[allow(dead_code)]
 pub const WHEEL_III: (&str, char) = ("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+#[allow(dead_code)]
 pub const WHEEL_IV: (&str, char) = ("ESOVPZJAYQUIRHXLNFTGKDCMWB", 'J');
+#[allow(dead_code)]
 pub const WHEEL_V: (&str, char) = ("VZBRGITYUPSDNHLXAWMJQOFECK", 'Z');
+
 pub struct Rotor {
     turnover: usize,
     position: usize,
