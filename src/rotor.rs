@@ -1,12 +1,12 @@
 // # 旋转
 // # rotor_in:输入偏移量，输出偏移量
 // # rotor_out:输入偏移量，输出偏移量
-const WHEEL_I: (&str, char) = ("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
-const WHEEL_II: (&str, char) = ("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
-const WHEEL_III: (&str, char) = ("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
-const WHEEL_IV: (&str, char) = ("ESOVPZJAYQUIRHXLNFTGKDCMWB", 'J');
-const WHEEL_V: (&str, char) = ("VZBRGITYUPSDNHLXAWMJQOFECK", 'Z');
-struct Rotor {
+pub const WHEEL_I: (&str, char) = ("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+pub const WHEEL_II: (&str, char) = ("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
+pub const WHEEL_III: (&str, char) = ("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+pub const WHEEL_IV: (&str, char) = ("ESOVPZJAYQUIRHXLNFTGKDCMWB", 'J');
+pub const WHEEL_V: (&str, char) = ("VZBRGITYUPSDNHLXAWMJQOFECK", 'Z');
+pub struct Rotor {
     turnover: usize,
     position: usize,
     forward: [usize; 26],
@@ -20,7 +20,7 @@ impl Rotor {
         let mut forward = [0_usize; 26];
         let mut reverse = [0_usize; 26];
         for (i, letter) in table_string.chars().enumerate() {
-            forward[i] = letter as usize  - 'A' as usize;
+            forward[i] = letter as usize - 'A' as usize;
             reverse[letter as usize - 'A' as usize] = i;
         }
         Rotor {
@@ -47,12 +47,12 @@ impl Rotor {
     }
     pub fn rotor_in(&self, offset_in: usize) -> usize {
         let offset_in = (offset_in + self.position) % 26;
-        let offset_out = (self.forward[offset_in] - self.position) % 26;
+        let offset_out = (self.forward[offset_in] + 26 - self.position) % 26;
         return offset_out;
     }
-    pub fn rotor_out(self, offset_in: usize) -> usize {
+    pub fn rotor_out(&self, offset_in: usize) -> usize {
         let offset_in = (offset_in + self.position) % 26;
-        let offset_out = (self.reverse[offset_in as usize] - self.position) % 26;
+        let offset_out = (self.reverse[offset_in as usize] + 26 - self.position) % 26;
         return offset_out;
     }
 }

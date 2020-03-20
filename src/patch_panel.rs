@@ -1,5 +1,5 @@
 // # 与第三个rotor相连接
-struct PatchPanel {
+pub struct PatchPanel {
     pairs: [usize; 26],
 }
 impl PatchPanel {
